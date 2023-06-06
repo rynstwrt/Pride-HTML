@@ -1,4 +1,6 @@
 # Pride-HTML
 A JS library to create pride-themed text!
 
-Here's the demo link: https://rynstwrt.github.io/Pride-HTML/
+![Demo GIF](https://i.imgur.com/D4M82Ks.gif)
+
+Demo link: https://rynstwrt.github.io/Pride-HTML/
