@@ -2,20 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pride HTML</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="pride-html.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
 </head>
 <body>
-    <h1>This is my pride text</h1>
+    <div id="landing">
+        <h1>PRIDE</h1>
+        <h1>HTML</h1>
+        <p>A Javascript library to create prideful text!</p>
+    </div>
 
-    <script src="pride-html.js"></script>
+    <section>
+        <h2>HOW TO USE IT</h2>
+        <pre>
+            <code class="language-javascript">
+                // In the head tag
+                &lt;script src="pride-html.js"&gt;&lt;/script&gt;
+                // ...
+
+                // At the end of the body tag
+                const ph = new PrideHTML();
+
+                ph.setAngle(90);
+                ph.setSpeed(1.5);
+
+                ph.colorTextElement(".your-class", "traditional");
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h2>WHAT FLAGS ARE SUPPORTED?</h2>
+        <ul>
+            <li><p>traditional</p></li>
+        </ul>
+    </section>
+
     <script>
-        const ph = new PrideHtml();
-        ph.setAngle(135);
-        ph.setScale(1);
-
-        const h1 = document.querySelector("h1");
-        ph.colorTextElement(h1, "traditional");
+        hljs.highlightAll();
+    </script>
+    <script>
+        const ph = new PrideHTML();
+        ph.setSpeed(1.5);
+        ph.colorTextElement("h1", "traditional");
+        ph.colorTextElement("h2", "traditional");
+        // ph.colorTextElement("p", "traditional");
     </script>
 </body>
 </html>
