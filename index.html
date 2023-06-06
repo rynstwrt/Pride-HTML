@@ -31,9 +31,12 @@
                 // At the end of the body tag
                 const ph = new PrideHTML();
 
-                ph.setAngle(90);
-                ph.setSpeed(1.5);
+                ph.setAngle(90); // optional
+                ph.setSpeed(1.5); // optional
 
+                // Parameters are the
+                // 1. CSS selector for the element.
+                // 2. The flag to be prideful with.
                 ph.colorTextElement(".your-class", "traditional");
             </code>
         </pre>
@@ -41,8 +44,14 @@
 
     <section>
         <h2>WHAT FLAGS ARE SUPPORTED?</h2>
+        <p>The supported flag keywords are:</p>
         <ul>
-            <li><p>traditional</p></li>
+            <li><p id="traditional">traditional</p></li>
+            <li><p id="philadelphia">philadelphia</p></li>
+            <li><p id="progress">progress</p></li>
+            <li><p id="trans">trans</p></li>
+            <li><p id="non-binary">non-binary</p></li>
+            <li><p id="intersex">intersex</p></li>
         </ul>
     </section>
 
@@ -52,9 +61,14 @@
     <script>
         const ph = new PrideHTML();
         ph.setSpeed(1.5);
+
         ph.colorTextElement("h1", "traditional");
-        ph.colorTextElement("h2", "traditional");
-        // ph.colorTextElement("p", "traditional");
+        ph.colorTextElement("#traditional", "traditional");
+        ph.colorTextElement("#philadelphia", "philadelphia");
+        ph.colorTextElement("#progress", "progress");
+        ph.colorTextElement("#trans", "trans");
+        ph.colorTextElement("#non-binary", "non-binary");
+        ph.colorTextElement("#intersex", "intersex");
     </script>
 </body>
 </html>
