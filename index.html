@@ -12,12 +12,14 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="pride-html.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://kit.fontawesome.com/d1ed772a88.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="landing">
         <h1>PRIDE</h1>
         <h1>HTML</h1>
         <p>A Javascript library to create prideful text!</p>
+        <a href="https://github.com/rynstwrt/Pride-HTML"><i class="fa-brands fa-github"></i></a>
     </div>
 
     <section>
@@ -28,47 +30,25 @@
                 &lt;script src="pride-html.js"&gt;&lt;/script&gt;
                 // ...
 
-                // At the end of the body tag
+                // In a script tag/file at the end of the body tag
                 const ph = new PrideHTML();
 
                 ph.setAngle(90); // optional
                 ph.setSpeed(1.5); // optional
 
-                // Parameters are the
-                // 1. CSS selector for the element.
-                // 2. The flag to be prideful with.
-                ph.colorTextElement(".your-class", "traditional");
+                // Parameter is the CSS selector for the element.
+                ph.colorTextElement(".your-class");
             </code>
         </pre>
     </section>
 
-    <section>
-        <h2>WHAT FLAGS ARE SUPPORTED?</h2>
-        <p>The supported flag keywords are:</p>
-        <ul>
-            <li><p id="traditional">traditional</p></li>
-            <li><p id="philadelphia">philadelphia</p></li>
-            <li><p id="progress">progress</p></li>
-            <li><p id="trans">trans</p></li>
-            <li><p id="non-binary">non-binary</p></li>
-            <li><p id="intersex">intersex</p></li>
-        </ul>
-    </section>
-
     <script>
         hljs.highlightAll();
-    </script>
-    <script>
+
         const ph = new PrideHTML();
         ph.setSpeed(1.5);
 
-        ph.colorTextElement("h1", "traditional");
-        ph.colorTextElement("#traditional", "traditional");
-        ph.colorTextElement("#philadelphia", "philadelphia");
-        ph.colorTextElement("#progress", "progress");
-        ph.colorTextElement("#trans", "trans");
-        ph.colorTextElement("#non-binary", "non-binary");
-        ph.colorTextElement("#intersex", "intersex");
+        ph.colorTextElement("h1");
     </script>
 </body>
 </html>
