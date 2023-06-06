@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pride HTML</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <h1>This is my pride text</h1>
+
+    <script src="pride-html.js"></script>
+    <script>
+        const ph = new PrideHtml();
+        ph.setAngle(135);
+        ph.setScale(1);
+
+        const h1 = document.querySelector("h1");
+        ph.colorTextElement(h1, "traditional");
+    </script>
+</body>
+</html>
