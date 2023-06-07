@@ -5,20 +5,8 @@
  * Author: Ryan Stewart
  * Date Started: June 05, 2023
  */
-const scrollDelayMS = 30;
-const colorIncrement = 3;
-
 class PrideHTML
 {
-    // #gradients = {
-    //     "traditional": ["#e40203", "#ff8b00", "#feed00", "#008026", "#004dff", "#750686"],
-    //     "philadelphia": ["#000000", "#784f17", "#FF0000", "#FF8E00", "#FFFF00", "#008E00", "#00C0C0", "#400098", "#8E008E"],
-    //     "progress": ["#FFFFFF", "#ffafc8", "#74d7ee", "#784f17", "#000000", "#FF0000", "#FF8E00", "#FFFF00", "#008E00", "#00C0C0", "#400098", "#8E008E"],
-    //     "trans": ["#61cbfe", "#f6a8b7", "#fffefd"],
-    //     "non-binary": ["#ffdc00", "#ffffff", "#af5cd8", "#000000"],
-    //     "intersex": []
-    // };
-
     #flagGradient = ["#e40203", "#ff8b00", "#feed00", "#008026", "#004dff", "#750686"];
 
     constructor(angle = 135, speed = 1)
@@ -121,6 +109,24 @@ class PrideHTML
         return `#${f(0)}${f(8)}${f(4)}`;
     }
 
+    #colorStep(elements)
+    {
+        this.#flagGradient = this.#flagGradient.map(hex =>
+        {
+            const hsl = this.#convertHEXToHSL(hex); // [h, s, l]
+
+            let h = hsl[0];
+            ++h;
+            const s = hsl[1];
+            const l = hsl[2];
+
+            return this.#convertHSLToHEX(h, s, l);
+        });
+
+        elements.forEach(el => this.#colorText(el, this.#flagGradient));
+        requestAnimationFrame(() => this.#colorStep(elements));
+    }
+
     colorTextElement(cssSelector)
     {
         const elements = document.querySelectorAll(cssSelector);
@@ -131,24 +137,8 @@ class PrideHTML
             this.#colorText(el, this.#flagGradient);
         });
 
-        let gradient = this.#flagGradient;
-        setInterval(() =>
-        {
-            const newGradient = [];
-            gradient.forEach(hex =>
-            {
-                const hsl = this.#convertHEXToHSL(hex); // [h, s, l]
+        console.log("A")
 
-                let h = hsl[0];
-                h += colorIncrement;
-                const s = hsl[1];
-                const l = hsl[2];
-
-                newGradient.push(this.#convertHSLToHEX(h, s, l));
-            });
-
-            gradient = newGradient;
-            elements.forEach(el => this.#colorText(el, newGradient));
-        }, scrollDelayMS / this.speed);
+        requestAnimationFrame(() => this.#colorStep(elements));
     }
 }
